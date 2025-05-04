@@ -150,9 +150,12 @@ The application will be accessible at `http://localhost:3000`.
 
 The application uses JWT for securing API endpoints. The `verify.js` middleware checks for the presence of a valid token in the `Authorization` header.
 
-## 🖼️ Screenshots
+## 📸 Screenshots
 
-*Please include relevant screenshots of your application here.*
+### 🏠 Homepage
+![Homepage]()
+
+---
 
 ## 🤝 Contributing
 
