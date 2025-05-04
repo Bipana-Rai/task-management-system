@@ -152,8 +152,20 @@ The application uses JWT for securing API endpoints. The `verify.js` middleware 
 
 ## 📸 Screenshots
 
-### 🏠 Homepage
-![Homepage]()
+### 🏠 Dashboard
+![Dashboard](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140530.png?raw=true)
+###  Task Section
+![Task Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140611.png?raw=true)
+###  Team Section
+![Team Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140642.png?raw=true)
+###  Create Task Section
+![Create Task Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140712.png?raw=true)
+###  Profile Section
+![Profile Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140742.png?raw=true)
+###  Search Section
+![Search Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140816.png?raw=true)
+
+
 
 ---
 
