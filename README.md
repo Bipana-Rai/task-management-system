@@ -155,15 +155,17 @@ The application uses JWT for securing API endpoints. The `verify.js` middleware 
 ### 🏠 Dashboard
 ![Dashboard](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-04%20140530.png)
 ###  Task Section
-![Task Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140611.png?raw=true)
+![Task Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-04%20140611.png)
 ###  Team Section
-![Team Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140642.png?raw=true)
+![Team Section](http://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-04%20140642.png)
 ###  Create Task Section
-![Create Task Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140712.png?raw=true)
+![Create Task Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-04%20140712.png)
+###  Create Task Detail
+![Create Task Detail](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-30%20193921.png)
 ###  Profile Section
-![Profile Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140742.png?raw=true)
+![Profile Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-04%20140742.png)
 ###  Search Section
-![Search Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshots/Screenshot%202025-05-04%20140816.png?raw=true)
+![Search Section](https://github.com/Bipana-Rai/task-management-system/blob/master/screenshot/Screenshot%202025-05-04%20140816.png)
 
 
 
