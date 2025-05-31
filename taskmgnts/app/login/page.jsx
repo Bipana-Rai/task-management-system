@@ -8,6 +8,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+const baseURL = process.env.REACT_APP_API_URL;
 export default function App() {
   const router = useRouter();
   const {
@@ -20,7 +21,7 @@ export default function App() {
   const onSubmit = async (data) => {
     const value = { ...data };
     try {
-      const response = await axios.post("http://localhost:5000/login", value);
+      const response = await axios.post(`${baseURL}/login`, value);
       toast.success("log in Seccessfully");
       localStorage.setItem("token", response?.data?.token);
       router.push("/");

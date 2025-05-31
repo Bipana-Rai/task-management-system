@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+const baseURL = process.env.REACT_APP_API_URL;
 
 export const projectDetail = createAsyncThunk(
   "projectDetail",
@@ -7,16 +8,12 @@ export const projectDetail = createAsyncThunk(
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.post(
-        "http://localhost:5000/api/addTask",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await axios.post(`${baseURL}/api/addTask`, data, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       return response.data;
     } catch (error) {
@@ -29,7 +26,7 @@ export const projectDetail = createAsyncThunk(
 export const getProjectDetail = createAsyncThunk(
   "getProjectDetail",
   async (_, { rejectWithValue }) => {
-    const response = await fetch("http://localhost:5000/api/getTask");
+    const response = await fetch(`${baseURL}/api/getTask`);
     try {
       const result = await response.json();
       return result;
@@ -45,7 +42,7 @@ export const updateProjectDetail = createAsyncThunk(
   async ({ data, id }, { rejectWithValue }) => {
     try {
       const response = await axios.patch(
-        `http://localhost:5000/api/updateTask/${id}`,
+        `${baseURL}/api/updateTask/${id}`,
         data
       );
 
@@ -63,7 +60,7 @@ export const authorizeUserDetail = createAsyncThunk(
       return rejectWithValue("No token found");
     }
     try {
-      const response = await axios.get("http://localhost:5000/verify", {
+      const response = await axios.get(`${baseURL}/verify`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       //  console.log("User verified:", response.data);
@@ -77,7 +74,7 @@ export const deleteTask = createAsyncThunk(
   "deleteTask",
   async ({ id }, { rejectWithValue }) => {
     try {
-      await axios.delete(`http://localhost:5000/api/${id}/delete`);
+      await axios.delete(`${baseURL}/api/${id}/delete`);
       return id;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
@@ -88,7 +85,7 @@ export const getTeams = createAsyncThunk(
   "getTeams",
   async (rejectWithValue) => {
     try {
-      const res = await fetch("http://localhost:5000/getTeams");
+      const res = await fetch(`${baseURL}/getTeams`);
       const result = res.json();
       return result;
     } catch (error) {
