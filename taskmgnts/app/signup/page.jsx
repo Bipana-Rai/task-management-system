@@ -25,7 +25,7 @@ export default function App() {
 
     try {
       const emailExists = await axios.post(
-        `${BASE_URL}/check-email`,
+        `https://taskmgmntbackend.onrender.com/api/check-email`,
         {
           email: value.email,
         }
@@ -36,7 +36,7 @@ export default function App() {
         return; // Stop form submission
       }
       const response = await axios.post(
-        `${BASE_URL}/register`,
+        `https://taskmgmntbackend.onrender.com/api/register`,
         value
       );
       toast.success("Register Seccessfully");
