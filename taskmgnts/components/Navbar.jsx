@@ -28,12 +28,12 @@ const Navbar = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
 
-    if (inputValue === "") return;
-   router.replace(`/search?query=${encodeURIComponent(value)}`);
-  };
+  //   if (inputValue === "") return;
+  //  router.replace(`/search?query=${encodeURIComponent(value)}`);
+  // };
 
   return (
     <>
