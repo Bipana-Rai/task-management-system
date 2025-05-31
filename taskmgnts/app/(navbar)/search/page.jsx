@@ -17,8 +17,8 @@ function page() {
     dispatch(getProjectDetail());
   }, []);
 
-  const filterData = project.filter((p) =>
-    p.project.toLowerCase().includes(query.trimStart().toLowerCase())
+  const filterData = project?.filter((p) =>
+    p?.project.toLowerCase().includes(query.trimStart().toLowerCase())
   );
 
   return (
