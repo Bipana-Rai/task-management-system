@@ -1,4 +1,6 @@
 "use client";
+export const dynamic = "force-dynamic";
+
 import AllTask from "@/components/AllTasks";
 import Taskbar from "@/components/Taskbar";
 

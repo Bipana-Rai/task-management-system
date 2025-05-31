@@ -45,7 +45,7 @@ const Navbar = () => {
           >
             <GiHamburgerMenu className="lg:hidden cursor-pointer" />
           </div>
-          <form action="" onSubmit={handleSubmit}>
+          <form action="" >
             <div className="flex items-center  rounded-xl  text-gray-700 gap-2 border-1 border-gray-300 bg-white lg:ps-2 ps-1  pe-2 ">
               <input
                 key="search-input"
