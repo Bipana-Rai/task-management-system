@@ -8,19 +8,21 @@ import { useDispatch, useSelector } from "react-redux";
 
 function page() {
   const searchParams = useSearchParams();
-  const query = searchParams.get("query");
+  const query = searchParams?.get("query") || "";
   const router = useRouter();
   const dispatch = useDispatch();
   const { project } = useSelector((state) => state.user);
- 
+
   useEffect(() => {
     dispatch(getProjectDetail());
   }, []);
 
-  const filterData = project?.filter((p) =>
-    p?.project.toLowerCase().includes(query.trimStart().toLowerCase())
-  );
-
+  const filterData =
+    query.trim() !== ""
+      ? project.filter((p) =>
+          p.project.toLowerCase().includes(query.trimStart().toLowerCase())
+        )
+      : project;
   return (
     <>
       <div className="pt-20   ">
