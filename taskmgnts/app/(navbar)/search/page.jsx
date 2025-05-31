@@ -1,7 +1,7 @@
 "use client";
 import Cards from "@/components/Cards";
 import { getProjectDetail } from "@/features/user/userSlice";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,7 +9,6 @@ import { useDispatch, useSelector } from "react-redux";
 function page() {
   const searchParams = useSearchParams();
   const query = searchParams?.get("query") || "";
-  const router = useRouter();
   const dispatch = useDispatch();
   const { project } = useSelector((state) => state.user);
 

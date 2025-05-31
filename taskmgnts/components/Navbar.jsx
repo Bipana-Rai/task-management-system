@@ -32,7 +32,7 @@ const Navbar = () => {
     e.preventDefault();
 
     if (inputValue === "") return;
-    router.push(`/search?query=${encodeURIComponent(inputValue)}`);
+   router.replace(`/search?query=${encodeURIComponent(value)}`);
   };
 
   return (
