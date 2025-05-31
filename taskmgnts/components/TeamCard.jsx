@@ -9,7 +9,7 @@ function TeamCard({ data }) {
     onClick={()=>router.push(`/teamDetails/${data._id}`)}>
       <div className="md:h-30 h-20 w-20  relative md:w-30 rounded-full bg-gray-300 overflow-hidden">
         <Image
-          src={data.profileImage || "/profile.png"}
+          src={$data.profileImage || "/profile.png"}
           className=" absolute object-cover"
           alt="profile"
           fill
