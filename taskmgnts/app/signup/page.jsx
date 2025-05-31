@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import { BiSolidError } from "react-icons/bi";
-const baseURL = process.env.REACT_APP_API_URL;
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
 export default function App() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function App() {
 
     try {
       const emailExists = await axios.post(
-        `${baseURL}/check-email`,
+        `${BASE_URL}/check-email`,
         {
           email: value.email,
         }
@@ -36,7 +36,7 @@ export default function App() {
         return; // Stop form submission
       }
       const response = await axios.post(
-        `${baseURL}/register`,
+        `${BASE_URL}/register`,
         value
       );
       toast.success("Register Seccessfully");

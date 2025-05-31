@@ -5,6 +5,8 @@ import { useSearchParams } from "next/navigation";
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+export const dynamic = "force-no-store";
+
 
 function page() {
   const searchParams = useSearchParams();
