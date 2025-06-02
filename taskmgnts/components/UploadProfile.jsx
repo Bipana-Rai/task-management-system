@@ -24,7 +24,7 @@ const UploadProfile = ({  profileInfo ,setVisible}) => {
     formData.append("profileImage", file);
     formData.append("id", profileInfo?._id);
     try {
-      const res = await axios.post("http://localhost:5000/upload", formData, {
+      const res = await axios.post("https://taskmgmntbackend.onrender.com", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },

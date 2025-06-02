@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     images: {
-        domains: ['taskmgmntbackend.onrender.com'], 
+        domains: ['localhost', 'taskmgmntbackend.onrender.com'], 
       },
 };
 
