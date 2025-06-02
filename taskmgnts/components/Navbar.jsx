@@ -13,6 +13,7 @@ const Navbar = () => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState("");
   const { profileInfo } = useSelector((state) => state.user);
+  console.log("profileInfo",profileInfo)
 
   useEffect(() => {
     dispatch(authorizeUserDetail());

@@ -21,7 +21,7 @@ export default function App() {
   const onSubmit = async (data) => {
     const value = { ...data };
     try {
-      const response = await axios.post(`https://taskmgmntbackend.onrender.com/api/login`, value);
+      const response = await axios.post(`https://taskmgmntbackend.onrender.com/login`, value);
       toast.success("log in Seccessfully");
       localStorage.setItem("token", response?.data?.token);
       router.push("/");
