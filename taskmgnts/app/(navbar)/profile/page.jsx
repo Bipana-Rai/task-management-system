@@ -11,6 +11,7 @@ import {
 } from "@/features/user/userSlice";
 import { useRouter } from "next/navigation";
 import UploadProfile from "@/components/UploadProfile";
+const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
 
 const page = () => {
   const dispatch = useDispatch(); 
@@ -38,10 +39,10 @@ const page = () => {
   }, [dispatch]);
   const updatePhoto = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/user/${profileInfo._id}`);
+      const res = await fetch(`${BASE_URL}/user/${profileInfo._id}`);
       const result = await res.json();
       setProfile(result);
-      // console.log(result);
+      console.log("results",result);
     } catch (error) {
       console.log(error);
     }

@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import { FaUpload } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
 import {  easeInOut, easeOut, motion } from "framer-motion";
-
+const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
 const UploadProfile = ({  profileInfo ,setVisible}) => {
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
@@ -24,7 +24,9 @@ const UploadProfile = ({  profileInfo ,setVisible}) => {
     formData.append("profileImage", file);
     formData.append("id", profileInfo?._id);
     try {
-      const res = await axios.post("https://taskmgmntbackend.onrender.com", formData, {
+      console.log("Uploading to:", `${BASE_URL}/upload`);
+
+      const res = await axios.post(`${BASE_URL}/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
