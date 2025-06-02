@@ -8,7 +8,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
 export default function App() {
   const router = useRouter();
   const {
@@ -21,7 +21,7 @@ export default function App() {
   const onSubmit = async (data) => {
     const value = { ...data };
     try {
-      const response = await axios.post(`https://taskmgmntbackend.onrender.com/login`, value);
+      const response = await axios.post(`${BASE_URL}/login`, value);
       toast.success("log in Seccessfully");
       localStorage.setItem("token", response?.data?.token);
       router.push("/");

@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import { BiSolidError } from "react-icons/bi";
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
 
 export default function App() {
   const router = useRouter();
@@ -25,7 +25,7 @@ export default function App() {
 
     try {
       const emailExists = await axios.post(
-        `https://taskmgmntbackend.onrender.com/check-email`,
+        `${BASE_URL}/check-email`,
         {
           email: value.email,
         }
@@ -36,7 +36,7 @@ export default function App() {
         return; // Stop form submission
       }
       const response = await axios.post(
-        `https://taskmgmntbackend.onrender.com/register`,
+        `${BASE_URL}/register`,
         value
       );
       toast.success("Register Seccessfully");
