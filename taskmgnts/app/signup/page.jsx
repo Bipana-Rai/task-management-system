@@ -9,7 +9,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa6";
 import { useState } from "react";
 import { BiSolidError } from "react-icons/bi";
-const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
+const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim();
 
 export default function App() {
   const router = useRouter();
@@ -24,21 +24,15 @@ export default function App() {
     const value = { ...data };
 
     try {
-      const emailExists = await axios.post(
-        `${BASE_URL}/check-email`,
-        {
-          email: value.email,
-        }
-      );
+      const emailExists = await axios.post(`${BASE_URL}/check-email`, {
+        email: value.email,
+      });
 
       if (emailExists.data.exists) {
         toast.error("Email already exists");
         return; // Stop form submission
       }
-      const response = await axios.post(
-        `${BASE_URL}/register`,
-        value
-      );
+      const response = await axios.post(`${BASE_URL}/register`, value);
       toast.success("Register Seccessfully");
       setTimeout(() => {
         router.push("/login");
