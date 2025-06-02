@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
 console.log("url",BASE_URL)
 
 export const projectDetail = createAsyncThunk(
@@ -9,7 +10,7 @@ export const projectDetail = createAsyncThunk(
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.post(`https://taskmgmntbackend.onrender.com/api/addTask`, data, {
+      const response = await axios.post(`${BASE_URL}/api/addTask`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -27,7 +28,7 @@ export const projectDetail = createAsyncThunk(
 export const getProjectDetail = createAsyncThunk(
   "getProjectDetail",
   async (_, { rejectWithValue }) => {
-    const response = await fetch(`https://taskmgmntbackend.onrender.com/api/getTask`);
+    const response = await fetch(`${BASE_URL}/api/getTask`);
     try {
       const result = await response.json();
       return result;
@@ -43,7 +44,7 @@ export const updateProjectDetail = createAsyncThunk(
   async ({ data, id }, { rejectWithValue }) => {
     try {
       const response = await axios.patch(
-        `https://taskmgmntbackend.onrender.com/api/updateTask/${id}`,
+        `${BASE_URL}/api/updateTask/${id}`,
         data
       );
 
@@ -61,7 +62,7 @@ export const authorizeUserDetail = createAsyncThunk(
       return rejectWithValue("No token found");
     }
     try {
-      const response = await axios.get(`https://taskmgmntbackend.onrender.com/verify`, {
+      const response = await axios.get(`${BASE_URL}/verify`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       //  console.log("User verified:", response.data);
@@ -75,7 +76,7 @@ export const deleteTask = createAsyncThunk(
   "deleteTask",
   async ({ id }, { rejectWithValue }) => {
     try {
-      await axios.delete(`https://taskmgmntbackend.onrender.com/api/${id}/delete`);
+      await axios.delete(`${BASE_URL}/api/${id}/delete`);
       return id;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
@@ -86,7 +87,7 @@ export const getTeams = createAsyncThunk(
   "getTeams",
   async (rejectWithValue) => {
     try {
-      const res = await fetch(`https://taskmgmntbackend.onrender.com/getTeams`);
+      const res = await fetch(`${BASE_URL}/getTeams`);
       const result = res.json();
       return result;
     } catch (error) {
