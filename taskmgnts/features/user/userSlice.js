@@ -10,7 +10,7 @@ export const projectDetail = createAsyncThunk(
     const token = localStorage.getItem("token");
 
     try {
-      const response = await axios.post(`${BASE_URL}/api/addTask`, data, {
+      const response = await axios.post(`https://taskmngmtbackend.onrender.com/api/addTask`, data, {
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
@@ -28,7 +28,10 @@ export const projectDetail = createAsyncThunk(
 export const getProjectDetail = createAsyncThunk(
   "getProjectDetail",
   async (_, { rejectWithValue }) => {
-    const response = await fetch(`${BASE_URL}/api/getTask`);
+    const response = await fetch(`https://taskmngmtbackend.onrender.com/api/getTask`,{
+      withCredentials: true, 
+    });
+    
     try {
       const result = await response.json();
       return result;
@@ -44,7 +47,7 @@ export const updateProjectDetail = createAsyncThunk(
   async ({ data, id }, { rejectWithValue }) => {
     try {
       const response = await axios.patch(
-        `${BASE_URL}/api/updateTask/${id}`,
+        `https://taskmngmtbackend.onrender.com/api/updateTask/${id}`,
         data
       );
 
@@ -76,7 +79,7 @@ export const deleteTask = createAsyncThunk(
   "deleteTask",
   async ({ id }, { rejectWithValue }) => {
     try {
-      await axios.delete(`${BASE_URL}/api/${id}/delete`);
+      await axios.delete(`https://taskmngmtbackend.onrender.com/api/${id}/delete`);
       return id;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
@@ -87,7 +90,7 @@ export const getTeams = createAsyncThunk(
   "getTeams",
   async (rejectWithValue) => {
     try {
-      const res = await fetch(`${BASE_URL}/getTeams`);
+      const res = await fetch(`https://taskmngmtbackend.onrender.com/getTeams`);
       const result = res.json();
       return result;
     } catch (error) {
