@@ -65,7 +65,7 @@ export const authorizeUserDetail = createAsyncThunk(
       return rejectWithValue("No token found");
     }
     try {
-      const response = await axios.get(`${BASE_URL}/verify`, {
+      const response = await axios.get(`https://taskmngmtbackend.onrender.com/verify`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       //  console.log("User verified:", response.data);

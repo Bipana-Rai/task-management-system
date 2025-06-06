@@ -39,7 +39,7 @@ const page = () => {
   }, [dispatch]);
   const updatePhoto = async () => {
     try {
-      const res = await fetch(`${BASE_URL}/user/${profileInfo._id}`);
+      const res = await fetch(`https://taskmngmtbackend.onrender.com/user/${profileInfo._id}`);
       const result = await res.json();
       setProfile(result);
       console.log("results",result);

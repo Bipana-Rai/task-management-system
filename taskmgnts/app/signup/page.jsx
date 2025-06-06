@@ -24,7 +24,7 @@ export default function App() {
     const value = { ...data };
 
     try {
-      const emailExists = await axios.post(`${BASE_URL}/check-email`, {
+      const emailExists = await axios.post(`https://taskmngmtbackend.onrender.com/check-email`, {
         email: value.email,
       });
 
@@ -32,7 +32,7 @@ export default function App() {
         toast.error("Email already exists");
         return; // Stop form submission
       }
-      const response = await axios.post(`${BASE_URL}/register`, value);
+      const response = await axios.post(`https://taskmngmtbackend.onrender.com/register`, value);
       toast.success("Register Seccessfully");
       setTimeout(() => {
         router.push("/login");
