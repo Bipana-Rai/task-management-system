@@ -11,10 +11,9 @@ import {
 } from "@/features/user/userSlice";
 import { useRouter } from "next/navigation";
 import UploadProfile from "@/components/UploadProfile";
-const BASE_URL = (process.env.NEXT_PUBLIC_API_BASE_URL || "").trim()
 
 const page = () => {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const router = useRouter();
   const [profile, setProfile] = useState(null);
   const [visible, setVisible] = useState(false);
@@ -30,19 +29,18 @@ const page = () => {
   const inProgress = filterProject.filter((e) => e.status === "in progress");
   const completed = filterProject.filter((e) => e.status === "Completed");
 
-  // console.log(profileInfo._id);
-
   useEffect(() => {
     dispatch(authorizeUserDetail());
     dispatch(getProjectDetail());
-  
   }, [dispatch]);
   const updatePhoto = async () => {
     try {
-      const res = await fetch(`https://taskmngmtbackend.onrender.com/user/${profileInfo._id}`);
+      const res = await fetch(
+        `https://taskmngmtbackend.onrender.com/user/${profileInfo._id}`
+      );
       const result = await res.json();
       setProfile(result);
-      console.log("results",result);
+      console.log("results", result);
     } catch (error) {
       console.log(error);
     }
@@ -53,7 +51,7 @@ const page = () => {
     }
   }, [profileInfo?._id]);
 
- 
+  console.log("profile", profile?.profileImage);
 
   return (
     <>
@@ -70,6 +68,7 @@ const page = () => {
                       className="object-cover border-2"
                       fill
                       priority
+                     unoptimized
                     />
                   </div>
                   <div
