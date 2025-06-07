@@ -26,7 +26,7 @@ const UploadProfile = ({  profileInfo ,setVisible}) => {
     try {
      
 
-      const res = await axios.post(`https://taskmngmtbackend.onrender.com/upload`, formData, {
+      const res = await axios.post(`https://taskmngmtbackend.onrender.com/uploads`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
