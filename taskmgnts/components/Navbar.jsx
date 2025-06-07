@@ -13,7 +13,7 @@ const Navbar = () => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState("");
   const { profileInfo } = useSelector((state) => state.user);
-  console.log("prof...",profileInfo.profileImage)
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
     dispatch(authorizeUserDetail());
@@ -28,7 +28,23 @@ const Navbar = () => {
       router.push("/");
     }
   };
-
+  const updatePhoto = async () => {
+    try {
+      const res = await fetch(
+        `https://taskmngmtbackend.onrender.com/user/${profileInfo._id}`
+      );
+      const result = await res.json();
+      setProfile(result);
+      console.log("results", result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    if (profileInfo?._id) {
+      updatePhoto();
+    }
+  }, [profileInfo?._id]);
 
   return (
     <>
@@ -40,7 +56,7 @@ const Navbar = () => {
           >
             <GiHamburgerMenu className="lg:hidden cursor-pointer" />
           </div>
-          <form action="" >
+          <form action="">
             <div className="flex items-center  rounded-xl  text-gray-700 gap-2 border-1 border-gray-300 bg-white lg:ps-2 ps-1  pe-2 ">
               <input
                 key="search-input"
@@ -54,10 +70,13 @@ const Navbar = () => {
               </button>
             </div>
           </form>
-          <div className="flex items-center md:gap-3 ps-2 gap-1 md:pe-7 cursor-pointer  "onClick={()=> router.push("/profile")}>
+          <div
+            className="flex items-center md:gap-3 ps-2 gap-1 md:pe-7 cursor-pointer  "
+            onClick={() => router.push("/profile")}
+          >
             <div className=" h-10 w-10  bg-gray-200 relative rounded-full overflow-hidden">
               <Image
-                src={profileInfo?.profileImage || "/profile.png"}
+                src={profile?.profileImage || "/profile.png"}
                 className="object-cover"
                 alt="pp"
                 fill
@@ -65,9 +84,7 @@ const Navbar = () => {
               />
             </div>
             <div className="text-gray-100 hidden md:block leading-4">
-              <p className="">
-                {profileInfo?.fullName}
-              </p>
+              <p className="">{profileInfo?.fullName}</p>
               <p className="text-[12px] text-gray-300">{profileInfo.role}</p>
             </div>
           </div>

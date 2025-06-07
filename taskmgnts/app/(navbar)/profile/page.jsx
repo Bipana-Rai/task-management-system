@@ -51,7 +51,7 @@ const page = () => {
     }
   }, [profileInfo?._id]);
 
-
+  console.log("profile", profile?.profileImage);
 
   return (
     <>
