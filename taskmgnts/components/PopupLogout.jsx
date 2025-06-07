@@ -9,7 +9,7 @@ const PopupLogout = () => {
   const router = useRouter();
   const handleLogout = () => {
     localStorage.clear();
-    router.push("/login");
+    router.push("/");
     dispatch(closeLogout());
   };
 

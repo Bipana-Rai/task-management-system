@@ -5,7 +5,7 @@ export const navLink =[
     {
         label:"Dashboard",
         icons:<MdOutlineDashboard />,
-        path:"/"
+        path:"/home"
     },
     {
         label:"Tasks",

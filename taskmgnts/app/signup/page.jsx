@@ -35,7 +35,7 @@ export default function App() {
       const response = await axios.post(`https://taskmngmtbackend.onrender.com/register`, value);
       toast.success("Register Seccessfully");
       setTimeout(() => {
-        router.push("/login");
+        router.push("/");
       }, 1500);
     } catch (error) {
       console.log(error);
@@ -233,7 +233,7 @@ export default function App() {
         </form>
         <motion.p className="py-2 text-center" {...motionProps}>
           already has an account ?
-          <Link href="/login" className="px-2  underline">
+          <Link href="/" className="px-2  underline">
             log in
           </Link>
         </motion.p>

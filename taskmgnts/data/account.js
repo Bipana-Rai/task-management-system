@@ -9,6 +9,6 @@ export const profile = [
   {
     label: "LogOut",
     icons: <MdLogout />,
-    path: "/login",
+    path: "/",
   },
 ];
