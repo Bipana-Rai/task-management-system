@@ -13,7 +13,7 @@ const Navbar = () => {
   const router = useRouter();
   const [inputValue, setInputValue] = useState("");
   const { profileInfo } = useSelector((state) => state.user);
-  console.log("profileInfo",profileInfo)
+  console.log("prof...",profileInfo.profileImage)
 
   useEffect(() => {
     dispatch(authorizeUserDetail());
@@ -61,6 +61,7 @@ const Navbar = () => {
                 className="object-cover"
                 alt="pp"
                 fill
+                unoptimized
               />
             </div>
             <div className="text-gray-100 hidden md:block leading-4">

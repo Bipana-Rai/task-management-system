@@ -118,40 +118,7 @@ const page = () => {
           </div>
         </div>
       </div>
-      {/* <div className=" mt-20 lg:ps-8 ps-3">
-        <p className="text-2xl font-bold text-gray-700">Overview</p>
-        <div className=" lg:grid grid-cols-5">
-          <div className="lg:col-span-3 ">
-            <div className="hide-scrollbar flex overflow-x-auto   px-2  ">
-              <div className="flex gap-3 flex-nowrap  min-w-[600px] lg:gap-10 py-3">
-                {taskdetail.map((e, i) => (
-                  <div
-                    key={i}
-                    className={`flex flex-col justify-center text-center  lg:py-2 w-[170px] bg-white  shadow-[0_3px_10px_rgb(0,0,0,0.4)] rounded-xl `}
-                    style={{ background: e.bg }}
-                  >
-                    <div
-                      className={`flex justify-center ${e.color} text-2xl py-3 `}
-                    >
-                      {e.icon}
-                    </div>
-                    <p className="text-gray-600">{e.label}</p>
-                    <p>{e.length}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <Summary project={project} />
-          </div>
-          <div className="lg:col-span-2 lg:block ps-2  hidden ">
-            <Calender
-              selectedDate={selectedDate}
-              setSelectedDate={setSelectedDate}
-            />
-            <Completed project={project} selectedDate={selectedDate} />
-          </div>
-        </div>
-      </div> */}
+     
     </>
   );
 };
